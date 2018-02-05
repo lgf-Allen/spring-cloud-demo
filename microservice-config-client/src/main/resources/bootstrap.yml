@@ -1,0 +1,18 @@
+# 该配置文件只能为bootstrap.yml或者bootstrap.properties,
+# 这个配置文件是由“根”上下文优先加载，可以保证程序启动之初就感知到远程配置中心的存在，并从远程获取配置，随后继续启动系统，
+server:
+  port: 8002
+  servlet-path: /microservice-config-client/*
+spring:
+  application:
+    name: microservice-config-client
+  cloud:
+    config:
+#     配置中心的地址
+      uri: http://localhost:8001/microservice-config-server
+#     对应前配置文件中的{profile}部分
+      profile: dev
+#     对应前配置文件的label部分
+      label: v2.0
+#     对应前配置文件中的{application}部分
+      name: microservice-config-client

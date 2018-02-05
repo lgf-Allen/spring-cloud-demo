@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+#         配置git仓库地址,可使用占位符{application}来实现一个应用对应一个git仓库目录的配置效果
+          uri: https://github.com/lgf-Allen/spring-config.git
+#         配置到本地仓库：uri: file:///${user.home}/git/repos
+#         如果本地的git仓库副本是脏的，强制从远程拉最新的配置文件
+          force-pull: true
+#         配置仓库路径,可以配置多个不同的路径,此处可以针对不同的project设置对应的folder
+          searchPaths: "{application}"
+#         配置仓库的分支
+          default-label: master
+#         访问git仓库的用户名
+          username:
+#         访问git仓库的密码 
+          password:
+#         设置为不驻留在系统临时结构中的目录来更改Config Server使用的目录
+          basedir: C:\Users\first\git\repos
+          repos:
+            dev:
+             pattern:
+              - dev/*
+             uri: file:///${user.home}/git/repos
+# active=native,默认从config server的src/main/resource目录下搜索文件
+#  profiles:
+#    active: native
+#spring.cloud.config.server.native.searchLocations属性来指定具体的配置文件路径
+server:
+  port: 8001
+  servlet-path: /microservice-config-server/*
