@@ -25,6 +25,12 @@ spring:
              pattern:
               - dev/*
              uri: file:///${user.home}/git/repos
+        health:
+          repositories:
+            check: 
+              name: spring-config
+              label: master
+              profiles: default
 # active=native,默认从config server的src/main/resource目录下搜索文件
 #  profiles:
 #    active: native
@@ -32,3 +38,9 @@ spring:
 server:
   port: 8001
   servlet-path: /microservice-config-server/*
+  
+# 安全保护,需要在客户端配置
+security:
+  user:
+    name: user
+    password: 38feda48-e3e9-47bd-95f7-66135bc929cc

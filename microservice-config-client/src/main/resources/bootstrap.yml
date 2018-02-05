@@ -16,3 +16,5 @@ spring:
       label: v2.0
 #     对应前配置文件中的{application}部分
       name: microservice-config-client
+      username: user
+      password: 38feda48-e3e9-47bd-95f7-66135bc929cc
