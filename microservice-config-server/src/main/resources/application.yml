@@ -1,6 +1,6 @@
 spring:
   application:
-    name: config-server
+    name: microservice-config-server
   cloud:
     config:
       server:
@@ -31,16 +31,30 @@ spring:
               name: spring-config
               label: master
               profiles: default
+      discovery:
+        enabled: true
 # active=native,默认从config server的src/main/resource目录下搜索文件
 #  profiles:
 #    active: native
 #spring.cloud.config.server.native.searchLocations属性来指定具体的配置文件路径
 server:
   port: 8001
-  servlet-path: /microservice-config-server/*
-  
+#  servlet-path: /microservice-config-server/*
+  context-path: /microservice-config-server/
 # 安全保护,需要在客户端配置
 security:
   user:
     name: user
     password: 38feda48-e3e9-47bd-95f7-66135bc929cc
+# 注册   eureka
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+    status-page-url-path: /info
+    health-check-url-path: /health
+  client:
+    region: CHINA
+    availability-zones: 
+      CHINA: XiAn
+    service-url:
+      XiAn: http://mvtm:mvtm@192.168.88.151:8082/mvtm-eureka-server/eureka
