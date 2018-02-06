@@ -16,5 +16,13 @@ spring:
       label: v2.0
 #     对应前配置文件中的{application}部分
       name: microservice-config-client
+#     完成config-server的安全校验
       username: user
       password: 38feda48-e3e9-47bd-95f7-66135bc929cc
+#     失败快速响应
+      fail-fast: true
+# 设置retry的相关属性
+#spring.cloud.config.retry.multiplier:初始重试间隔时间,默认1000ms
+#spring.cloud.config.retry.initial-interval:下一间隔的乘数，默认1.1
+#spring.cloud.config.retry.max-interval:最大间隔时间,默认2000ms
+#spring.cloud.config.retry.max-attempts:最大重试次数,默认6次
