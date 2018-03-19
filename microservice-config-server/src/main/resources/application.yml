@@ -11,20 +11,20 @@ spring:
 #         如果本地的git仓库副本是脏的，强制从远程拉最新的配置文件
           force-pull: true
 #         配置仓库路径,可以配置多个不同的路径,此处可以针对不同的project设置对应的folder
-          searchPaths: "{application}"
+          searchPaths: '{application}'
 #         配置仓库的分支
-          default-label: master
+          default-label: v2.0
 #         访问git仓库的用户名
           username:
 #         访问git仓库的密码 
           password:
 #         设置为不驻留在系统临时结构中的目录来更改Config Server使用的目录
           basedir: C:\Users\first\git\repos
-          repos:
-            dev:
-             pattern:
-              - dev/*
-             uri: file:///${user.home}/git/repos
+#          repos:
+#            dev:
+#             pattern:
+#              - dev/*
+#             uri: file:///${user.home}/git/repos
         health:
           repositories:
             check: 
@@ -33,6 +33,8 @@ spring:
               profiles: default
       discovery:
         enabled: true
+  jmx:
+    default-domain: microservice.config.server
 # active=native,默认从config server的src/main/resource目录下搜索文件
 #  profiles:
 #    active: native
@@ -40,21 +42,17 @@ spring:
 server:
   port: 8001
 #  servlet-path: /microservice-config-server/*
-  context-path: /microservice-config-server/
+#  context-path: /microservice-config-server/
 # 安全保护,需要在客户端配置
 security:
   user:
     name: user
-    password: 38feda48-e3e9-47bd-95f7-66135bc929cc
-# 注册   eureka
+    password: password
+# 注册eureka
 eureka:
-  instance:
-    instance-id: ${spring.application.name}:${random.int}
-    status-page-url-path: /info
-    health-check-url-path: /health
+#  instance:
+#    hostname: 192.168.88.202/microservice-config-server
   client:
-    region: CHINA
-    availability-zones: 
-      CHINA: XiAn
     service-url:
-      XiAn: http://mvtm:mvtm@192.168.88.151:8082/mvtm-eureka-server/eureka
+      defaultZone: http://localhost:8002/mvtm-eureka-server/eureka
+      

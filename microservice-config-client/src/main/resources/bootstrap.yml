@@ -1,7 +1,7 @@
 # 该配置文件只能为bootstrap.yml或者bootstrap.properties,
 # 这个配置文件是由“根”上下文优先加载，可以保证程序启动之初就感知到远程配置中心的存在，并从远程获取配置，随后继续启动系统，
-server:
-  port: 8002
+#server:
+#  port: 8004
 #  context-path: /microservice-config-client/
 #  servlet-path: /microservice-config-client/*
 spring:
@@ -10,7 +10,7 @@ spring:
   cloud:
     config:
 #     配置中心的地址
-      uri: http://localhost:8001/microservice-config-server
+#      uri: http://192.168.88.202:8887/mvtm-config-server
 #     对应前配置文件中的{profile}部分
       profile: dev
 #     对应前配置文件的label部分
@@ -19,12 +19,12 @@ spring:
       name: microservice-config-client
 #     完成config-server的安全校验
       username: user
-      password: 38feda48-e3e9-47bd-95f7-66135bc929cc
+      password: password
 #     失败快速响应
       fail-fast: true
       discovery:
         enabled: true
-        service-id: MICROSERVICE-CONFIG-SERVER
+        service-id: mvtm-config-server
 # 设置retry的相关属性
 #spring.cloud.config.retry.multiplier:初始重试间隔时间,默认1000ms
 #spring.cloud.config.retry.initial-interval:下一间隔的乘数，默认1.1
@@ -32,13 +32,12 @@ spring:
 #spring.cloud.config.retry.max-attempts:最大重试次数,默认6次
 # 注册   eureka
 eureka:
-  instance:
-    instance-id: ${spring.application.name}:${random.int}
-    status-page-url-path: ${spring.application.name}/info
-    health-check-url-path: ${spring.application.name}/health
+#  instance:
+#    instance-id: ${spring.application.name}:${random.int}
   client:
-    region: CHINA
-    availability-zones: 
-      CHINA: XiAn
     service-url:
-      XiAn: http://mvtm:mvtm@192.168.88.151:8082/mvtm-eureka-server/eureka
+      defaultZone: http://localhost:8003/mvtm-eureka-server/eureka
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8003/eureka
