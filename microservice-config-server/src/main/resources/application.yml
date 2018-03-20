@@ -19,7 +19,7 @@ spring:
 #         访问git仓库的密码 
           password:
 #         设置为不驻留在系统临时结构中的目录来更改Config Server使用的目录
-          basedir: C:\Users\first\git\repos
+#          basedir: C:\Users\first\git\repos
 #          repos:
 #            dev:
 #             pattern:
@@ -54,5 +54,5 @@ eureka:
 #    hostname: 192.168.88.202/microservice-config-server
   client:
     service-url:
-      defaultZone: http://localhost:8001/mvtm-eureka-server/eureka
+      defaultZone: http://localhost:8003/eureka
       

@@ -3,6 +3,8 @@
  */
 package com.allen.spring.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -22,11 +24,12 @@ public class HeolloController {
 	@Autowired
 	private DiscoveryClient client;
 	
-	@SuppressWarnings("deprecation")
 	@RequestMapping("/hello")
 	public String index() {
-		ServiceInstance instance = client.getLocalServiceInstance();
-		logger.info("host:"+instance.getHost()+",service_id:"+instance.getServiceId());
+		List<ServiceInstance> instances = client.getInstances("microservice-config-server");
+		for(int i = 0;i<instances.size();i++) {
+		logger.info("host:"+instances.get(i).getHost()+",service_id:"+instances.get(i).getServiceId());
+		}
 		return "Hello eureka";
 	}
 	

@@ -17,4 +17,4 @@ eureka:
     serviceUrl:
 #      tomcat start config:
 #      defaultZone: http://${eureka.instance.hostname}:{server.port}/microservice-eureka-server/eureka
-       defaultZone: http://${eureka.instance.hostname}:{server.port}/eureka
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
