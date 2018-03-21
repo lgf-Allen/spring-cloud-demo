@@ -40,7 +40,7 @@ spring:
 #    active: native
 #spring.cloud.config.server.native.searchLocations属性来指定具体的配置文件路径
 server:
-  port: 8001
+  port: 9001
 #  servlet-path: /microservice-config-server/*
 #  context-path: /microservice-config-server/
 # 安全保护,需要在客户端配置
@@ -55,4 +55,5 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8003/eureka
-      
+#       defaultZone: http://peer1:8001/eureka,http://peer2:8002/eureka
+       
