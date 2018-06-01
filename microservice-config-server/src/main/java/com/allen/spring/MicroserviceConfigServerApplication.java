@@ -17,8 +17,4 @@ public class MicroserviceConfigServerApplication extends SpringBootServletInitia
 		SpringApplication.run(MicroserviceConfigServerApplication.class, args);
 	}
 	
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(MicroserviceConfigServerApplication.class);
-	}
 }

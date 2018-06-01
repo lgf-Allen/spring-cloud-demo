@@ -11,7 +11,7 @@ spring:
 #         如果本地的git仓库副本是脏的，强制从远程拉最新的配置文件
           force-pull: true
 #         配置仓库路径,可以配置多个不同的路径,此处可以针对不同的project设置对应的folder
-          searchPaths: '{application}'
+          searchPaths: {application}
 #         配置仓库的分支
           default-label: v2.0
 #         访问git仓库的用户名
