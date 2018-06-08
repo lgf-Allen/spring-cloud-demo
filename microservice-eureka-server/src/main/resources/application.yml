@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: microservice-eureka-server
+  jmx:   
+     default-domain: microservice-eureka-server
   freemarker:
 # resove eureka welcome page is xml but not UI 
     prefer-file-system-access: false
@@ -17,4 +19,4 @@ eureka:
     serviceUrl:
 #      tomcat start config:
 #      defaultZone: http://${eureka.instance.hostname}:{server.port}/microservice-eureka-server/eureka
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+       defaultZone: http://${eureka.instance.hostname}:${server.port}/microservice-eureka-server/eureka
