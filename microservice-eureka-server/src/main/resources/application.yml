@@ -16,3 +16,6 @@ eureka:
     register-with-eureka: false
 #  表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
     fetch-registry: false
+    service-url:
+#    不配置会默认为 http://localhost:8761
+      defaultZone: http://localhost:8000/microservice-eureka-server/eureka
