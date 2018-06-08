@@ -16,7 +16,3 @@ eureka:
     register-with-eureka: false
 #  表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
     fetch-registry: false
-    serviceUrl:
-#      tomcat start config:
-#      defaultZone: http://${eureka.instance.hostname}:{server.port}/microservice-eureka-server/eureka
-       defaultZone: http://${eureka.instance.hostname}:${server.port}/microservice-eureka-server/eureka

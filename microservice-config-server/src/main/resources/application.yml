@@ -34,7 +34,7 @@ spring:
       discovery:
         enabled: true
   jmx:
-    default-domain: microservice.config.server
+    default-domain: microservice-config-server
 # active=native,默认从config server的src/main/resource目录下搜索文件
 #  profiles:
 #    active: native
@@ -50,10 +50,9 @@ security:
     password: password
 # 注册eureka
 eureka:
-#  instance:
-#    hostname: 192.168.88.202/microservice-config-server
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
   client:
     service-url:
-      defaultZone: http://localhost:8003/eureka
-#       defaultZone: http://peer1:8001/eureka,http://peer2:8002/eureka
-       
+      defaultZone: http://localhost:8000/microservice-eureka-server/eureka
