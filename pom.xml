@@ -22,7 +22,7 @@
 		<springframework.security.version>4.2.1.RELEASE</springframework.security.version>
 		<springframework.ws.version>2.2.2.RELEASE</springframework.ws.version>
 		<spring.restdocs.version>2.0.1.RELEASE</spring.restdocs.version>
-		<spring.cloud.version>Edgware.SR1</spring.cloud.version>
+		<spring.cloud.version>Dalston.SR3</spring.cloud.version>
 		<junit.version>4.12</junit.version>
 		<hibernate.version>4.2.21.Final</hibernate.version>
 		<hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
