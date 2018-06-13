@@ -3,15 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.allen.spring.boot</groupId>
 	<artifactId>microservice-config-server</artifactId>
 	<packaging>war</packaging>
-
 	<name>microservice-config-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
-		<groupId>org.springframework.samples</groupId>
+		<groupId>com.allen.spring.boot</groupId>
 		<artifactId>microservice-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
@@ -43,11 +41,11 @@
 			</exclusions>
 		</dependency>
 		<!-- spring-security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-			<version>${spring.boot.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-security</artifactId> -->
+<!-- 			<version>${spring.boot.version}</version> -->
+<!-- 		</dependency> -->
 		<!-- spring-cloud-eureka -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
