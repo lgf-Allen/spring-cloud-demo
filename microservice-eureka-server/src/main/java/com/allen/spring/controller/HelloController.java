@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
-import com.netflix.discovery.shared.Applications;
+
 
 /**
  * @author first
@@ -34,39 +35,43 @@ public class HelloController {
 	 */
 	@Autowired
 	private EurekaClient eurekaClient;// com.netflix.discovery.EurekaClient
-
+	
 	/**
-	 * 根据region查询对应的Application信息
-	 * 
-	 * @param region,optional
-	 *            param
-	 * @return
+	 * 根据instanceId查找对应的中转服务器
+	 * @param instanceId,optional param
+	 * @return List<InstanceInfo>
 	 */
 	@RequestMapping(path = "/apps", method = RequestMethod.GET)
-	public List<Application> getAllApps(@RequestParam(name = "region", required = false) String region,
-			@RequestParam(name = "serviceId", required = false) String serviceId) {
+	public List<InstanceInfo> getInstance(@RequestParam(name = "instanceId",required = false) String instanceId) {
 		
-		if (region != null) {
-			logger.info("RequestParam region is : " + region);
-		}
-		// Determinate region is null or not null.
-		Applications applications = region == null ? eurekaClient.getApplications()
-				: eurekaClient.getApplicationsForARegion(region);
-		if (applications == null) {
+		//Get applications."EUREKA-CLIENT"代表中转服务器名称
+		Application application = eurekaClient.getApplication("EUREKA-CLIENT");
+		if(application == null) {//没有可用的中转服务器
+			logger.warn("Don't find transfer server.");
 			return Collections.emptyList();
 		}
-		logger.info("Get for a region applications size is " + applications.size());
-		
-		List<Application> registered = new ArrayList<>();
-		if(serviceId != null) {
-			Application application= applications.getRegisteredApplications(serviceId);
-			registered.add(application);
-		}else {
-			// Get all registered application.
-			registered = applications.getRegisteredApplications();
-		}
-		
-		return registered;
+		return findInstancesByInstanceId(application,instanceId);
 	}
 
+	/**
+	 * 根据instanceId在Application中查找可用InstanceInfo
+	 * @param application
+	 * @param instanceId,if instanceId is null return all InstanceInfo;
+	 * but instanceId is not null return only one InstanceInfo or empty List.
+	 * @return List<InstanceInfo>
+	 */
+	private List<InstanceInfo> findInstancesByInstanceId(Application application,String instanceId){
+		List<InstanceInfo> instances = new ArrayList<InstanceInfo>();
+		if(instanceId != null) {
+			InstanceInfo instanceInfo = application.getByInstanceId(instanceId);
+			if(instanceInfo != null) {//根据instanceId查询到一个可用的服务
+				instances.add(instanceInfo);
+				logger.info("Find a transfer server by instanceId,the ip is {}",instanceInfo.getIPAddr());
+			}
+		}else {//查询所有可用的中转服务器
+			instances = application.getInstances();
+			logger.info("Find all transfer server.");
+		}
+		return instances;
+	}
 }

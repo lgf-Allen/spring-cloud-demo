@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: eureka-client
+  jmx:
+    default-domain: eureka-client
+server:
+  port: 8002
+eureka:
+  instance:
+#    hostname: eureka-client2
+    instance-id: eureka-client2
+  client:
+    service-url:
+      defaultZone: http://192.168.88.178:8005/microservice-eureka-server/eureka
