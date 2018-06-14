@@ -1,21 +1,11 @@
-server:
-  port: 8005
-spring:
-  application:
-    name: microservice-eureka-server
-  jmx:   
-     default-domain: microservice-eureka-server
-  freemarker:
-# resove eureka welcome page is xml but not UI 
-    prefer-file-system-access: false
 eureka:
   instance:
     hostname: localhsot
   client:
 #  当前应用会向注册中心（也是它自己）注册它自己，设置为false表示禁止这种默认行为
-    register-with-eureka: true
+    register-with-eureka: false
 #  表示不去检索其他的服务，因为服务注册中心本身的职责就是维护服务实例，它也不需要去检索其他服务
-    fetch-registry: true
+    fetch-registry: false
     service-url:
 #    不配置会默认为 http://localhost:8761
       defaultZone: http://localhost:8005/microservice-eureka-server/eureka
