@@ -3,21 +3,19 @@
  */
 package com.allen.spring.service;
 
-import java.util.List;
-
-import com.allen.spring.bean.AgentPO;
-import com.allen.spring.bean.Device;
-import com.allen.spring.bean.MvtmMonitor;
+import com.allen.spring.bean.ActionEvent;
+import com.allen.spring.bean.MonitorInstance;
 
 /**
  * @author first
  *
  */
 public interface MvtmMonitorService {
+    
+    /**
+     * receive action event from front side ,then calcuate new status and  update memory object
+     * @param event
+     */
+    MonitorInstance update(ActionEvent event);
 
-    List<Device> saveMvtm(Device device);
-    
-    AgentPO saveVta(AgentPO agent);
-    
-    AgentPO get(String staffId);
 }

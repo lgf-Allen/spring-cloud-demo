@@ -23,14 +23,4 @@ public class MonitorControllerImpl {
     @Autowired
     private  MvtmMonitorService mvtmMonitorService;
     
-    @PostMapping(path="/agent")
-    public AgentPO saveAgent(@RequestBody AgentPO agent) {
-        return mvtmMonitorService.saveVta(agent);
-    }
-    
-    @GetMapping(path="/agent")
-    public AgentPO get(@RequestParam(value="staffId") String staffId) {
-        return mvtmMonitorService.get(staffId);
-    }
-    
 }

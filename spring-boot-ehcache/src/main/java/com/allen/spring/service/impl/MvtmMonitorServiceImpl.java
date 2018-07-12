@@ -3,20 +3,19 @@
  */
 package com.allen.spring.service.impl;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;
 
-import com.allen.spring.bean.AgentPO;
-import com.allen.spring.bean.Device;
+import com.allen.spring.bean.ActionEvent;
+import com.allen.spring.bean.MonitorInstance;
+import com.allen.spring.bean.MvtmMonitor;
 import com.allen.spring.service.MvtmMonitorService;
+
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
 
 /**
  * @author first
@@ -31,25 +30,21 @@ public class MvtmMonitorServiceImpl implements MvtmMonitorService {
     private CacheManager manager;
     
     @Override
-    public List<Device> saveMvtm(Device device) {
+    public MonitorInstance update(ActionEvent event) {
+        Cache cache = manager.getCache("mvtmEhcache");
+        if("vtm".equals(event.getOwner())) {
+            MvtmMonitor mvtm = new MvtmMonitor();
+            mvtm.setBranchId(event.getOwnerId());
+            mvtm.setBranchName(event.getOwnerName());
+            mvtm.setTransactionId(event.getTransactionId());
+            String action = event.getAction();
+            
+        }
+        if("agent".equals(event.getOwner())) {
+            
+        }
         return null;
     }
 
-    @CachePut(value = "mvtmEhcache", key = "#agent.staffId")
-    @Override
-    public AgentPO saveVta(AgentPO agent) {
-        System.out.println(agent.getStaffName());
-        return agent;
-    }
-
     
-    @Override
-    public AgentPO get(String staffId) {
-       Cache cache =  manager.getCache("mvtmEhcache");
-       AgentPO agent = cache.get(staffId, AgentPO.class);
-        return agent;
-    }
-    
-    
-   
 }

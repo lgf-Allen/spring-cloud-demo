@@ -1,122 +1,96 @@
-/**
- * 
- */
 package com.allen.spring.bean;
 
+import java.util.Date;
+
 /**
+ * Generate MVTM report forms.
+ * 
  * @author first
  *
  */
+
 public class MvtmMonitor {
 
-    // 等待接入VTA数量
-    private int waitIncomingNumber;
+    private String branchName;
 
-    // VTM等候接入VTA时长
-    private long maxWaitTime;
+    private String branchId;
 
-    // 超过30秒未接入的个数
-    private int moreThan30s;
+    private String action;
 
-    // 拨入总数
-    private int totalCallingNumber;
+    private String transactionId;
 
-    // 成功接入总数
-    private int sucessCallingNumber;
+    private Date startTime;
 
-    // VTA busy个数
-    private int busyNumber;
+    private Date endTime;
 
-    // VTA ready 个数
-    private int readyNumber;
+    // 拨打次数
+    private int callTime;
 
-    // VTA not ready个数
-    private int notReadyNumber;
+    // 标识mvtm状态
+    private String status;
 
-    // 拨入的总数 - 超过30秒未能接入的个数/拨入的总数*100%
-    private double GOS;
-
-    // 由当日拨入总数 – 成功接入总数 / 拨入总数*100%
-    private double ABN;
-
-    public int getWaitIncomingNumber() {
-        return waitIncomingNumber;
+    public String getBranchName() {
+        return branchName;
     }
 
-    public void setWaitIncomingNumber(int waitIncomingNumber) {
-        this.waitIncomingNumber = waitIncomingNumber;
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
     }
 
-    public long getMaxWaitTime() {
-        return maxWaitTime;
+    public String getBranchId() {
+        return branchId;
     }
 
-    public void setMaxWaitTime(long maxWaitTime) {
-        this.maxWaitTime = maxWaitTime;
+    public void setBranchId(String branchId) {
+        this.branchId = branchId;
     }
 
-    public int getMoreThan30s() {
-        return moreThan30s;
+    public String getAction() {
+        return action;
     }
 
-    public void setMoreThan30s(int moreThan30s) {
-        this.moreThan30s = moreThan30s;
+    public void setAction(String action) {
+        this.action = action;
     }
 
-    public int getTotalCallingNumber() {
-        return totalCallingNumber;
+    public String getTransactionId() {
+        return transactionId;
     }
 
-    public void setTotalCallingNumber(int totalCallingNumber) {
-        this.totalCallingNumber = totalCallingNumber;
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
-    public int getSucessCallingNumber() {
-        return sucessCallingNumber;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setSucessCallingNumber(int sucessCallingNumber) {
-        this.sucessCallingNumber = sucessCallingNumber;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
-    public int getBusyNumber() {
-        return busyNumber;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setBusyNumber(int busyNumber) {
-        this.busyNumber = busyNumber;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
-    public int getReadyNumber() {
-        return readyNumber;
+    public int getCallTime() {
+        return callTime;
     }
 
-    public void setReadyNumber(int readyNumber) {
-        this.readyNumber = readyNumber;
+    public void setCallTime(int callTime) {
+        this.callTime = callTime;
     }
 
-    public int getNotReadyNumber() {
-        return notReadyNumber;
+    public String getStatus() {
+        return status;
     }
 
-    public void setNotReadyNumber(int notReadyNumber) {
-        this.notReadyNumber = notReadyNumber;
-    }
-
-    public double getGOS() {
-        return GOS;
-    }
-
-    public void setGOS(double gOS) {
-        GOS = gOS;
-    }
-
-    public double getABN() {
-        return ABN;
-    }
-
-    public void setABN(double aBN) {
-        ABN = aBN;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

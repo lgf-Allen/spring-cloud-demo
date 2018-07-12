@@ -22,13 +22,13 @@ import net.sf.ehcache.config.PersistenceConfiguration.Strategy;
  *
  */
 @Configuration
-public class EhcacheConfig implements CachingConfigurer {
+public class EhcacheConfig {
 
     @Bean
     public net.sf.ehcache.CacheManager ehCacheManager() {
         CacheConfiguration cacheConfiguration = new CacheConfiguration();
         cacheConfiguration.setName("mvtmEhcache");
-        cacheConfiguration.setEternal(false);
+        cacheConfiguration.setEternal(false);//是否清除缓存
         cacheConfiguration.addPersistence(new PersistenceConfiguration().strategy(Strategy.NONE));//No persist
         cacheConfiguration.setTimeToIdleSeconds(43200);//12 hours
         cacheConfiguration.setTimeToLiveSeconds(86400);//24 hours
@@ -39,26 +39,5 @@ public class EhcacheConfig implements CachingConfigurer {
         return net.sf.ehcache.CacheManager.newInstance(config);
     }
 
-    @Bean
-    @Override
-    public CacheManager cacheManager() {
-        return new EhCacheCacheManager(ehCacheManager());
-    }
-
-    @Override
-    public CacheResolver cacheResolver() {
-        return null;
-    }
-
-    @Override
-    public KeyGenerator keyGenerator() {
-        
-        return new SimpleKeyGenerator();
-    }
-
-    @Override
-    public CacheErrorHandler errorHandler() {
-        return null;
-    }
 
 }
