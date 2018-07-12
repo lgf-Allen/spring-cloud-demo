@@ -1,5 +1,6 @@
 package com.allen.spring.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,24 +10,34 @@ import java.util.Date;
  *
  */
 
-public class Mvtm {
+public class Device implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -7657306083603751734L;
 
     private String branchName;
 
     private String branchId;
 
-    //mvtm 操作
+    // mvtm 操作
     private String action;
 
     private String callNumber;
 
     private String transactionId;
 
-    //mvtm 开始拨打电话时间
+    // mvtm 开始拨打电话时间
     private Date dialingStartTime;
-    //mvtm 接通电话时间
+
+    // mvtm 接通电话时间
     private Date dialingEndTime;
 
+    // 拨打次数
+    private int callTime;
+    
+    //标识mvtm状态
     private String status;
 
     public String getBranchName() {
@@ -91,6 +102,14 @@ public class Mvtm {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getCallTime() {
+        return callTime;
+    }
+
+    public void setCallTime(int callTime) {
+        this.callTime = callTime;
     }
 
 }

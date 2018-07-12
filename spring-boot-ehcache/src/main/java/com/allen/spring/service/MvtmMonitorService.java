@@ -3,7 +3,10 @@
  */
 package com.allen.spring.service;
 
-import com.allen.spring.bean.AgentMonitor;
+import java.util.List;
+
+import com.allen.spring.bean.AgentPO;
+import com.allen.spring.bean.Device;
 import com.allen.spring.bean.MvtmMonitor;
 
 /**
@@ -12,7 +15,9 @@ import com.allen.spring.bean.MvtmMonitor;
  */
 public interface MvtmMonitorService {
 
-    MvtmMonitor save(MvtmMonitor mvtm, AgentMonitor agent);
+    List<Device> saveMvtm(Device device);
     
-    MvtmMonitor get();
+    AgentPO saveVta(AgentPO agent);
+    
+    AgentPO get(String staffId);
 }

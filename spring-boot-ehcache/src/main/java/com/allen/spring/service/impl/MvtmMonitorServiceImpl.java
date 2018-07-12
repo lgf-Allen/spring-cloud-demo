@@ -3,24 +3,20 @@
  */
 package com.allen.spring.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
-import org.springframework.cache.Cache.ValueWrapper;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;
 
-import com.allen.spring.bean.AgentMonitor;
-import com.allen.spring.bean.MvtmMonitor;
+import com.allen.spring.bean.AgentPO;
+import com.allen.spring.bean.Device;
 import com.allen.spring.service.MvtmMonitorService;
-
-import net.sf.ehcache.Ehcache;
 
 /**
  * @author first
@@ -30,22 +26,28 @@ import net.sf.ehcache.Ehcache;
 public class MvtmMonitorServiceImpl implements MvtmMonitorService {
 
     private static Logger logger = LoggerFactory.getLogger(MvtmMonitorServiceImpl.class);
-    
+  
     @Resource
     private CacheManager manager;
     
     @Override
-    public MvtmMonitor save(MvtmMonitor mvtm, AgentMonitor agent) {
-        Cache cache = manager.getCache("mvtmEhcache");
-        cache.put("mvtm_key", mvtm);
-        return mvtm;
+    public List<Device> saveMvtm(Device device) {
+        return null;
     }
 
+    @CachePut(value = "mvtmEhcache", key = "#agent.staffId")
     @Override
-    public MvtmMonitor get() {
-        Cache cache = manager.getCache("mvtmEhcache");
-        MvtmMonitor value = cache.get("mvtm_key", MvtmMonitor.class);
-        return value;
+    public AgentPO saveVta(AgentPO agent) {
+        System.out.println(agent.getStaffName());
+        return agent;
+    }
+
+    
+    @Override
+    public AgentPO get(String staffId) {
+       Cache cache =  manager.getCache("mvtmEhcache");
+       AgentPO agent = cache.get(staffId, AgentPO.class);
+        return agent;
     }
     
     

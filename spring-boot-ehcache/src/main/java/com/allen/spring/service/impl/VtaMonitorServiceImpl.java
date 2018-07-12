@@ -14,4 +14,6 @@ import com.allen.spring.service.VtaMonitorService;
 @Service
 public class VtaMonitorServiceImpl implements VtaMonitorService{
 
+    
+    
 }
