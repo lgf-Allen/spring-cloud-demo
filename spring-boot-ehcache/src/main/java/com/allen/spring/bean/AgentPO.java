@@ -3,7 +3,6 @@
  */
 package com.allen.spring.bean;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,12 +11,9 @@ import java.util.Date;
  * @author first
  *
  */
-public class AgentPO implements Serializable{
+public class AgentPO {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = -3137312176714066575L;
+    private Long id;
     // agent staffId
     private String staffId;
     // agent staffName
@@ -109,6 +105,14 @@ public class AgentPO implements Serializable{
 
     public void setWorkingDuration(Long workingDuration) {
         this.workingDuration = workingDuration;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

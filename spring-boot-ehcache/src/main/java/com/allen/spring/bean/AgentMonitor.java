@@ -3,6 +3,10 @@
  */
 package com.allen.spring.bean;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Monitor data
  * 
@@ -11,16 +15,38 @@ package com.allen.spring.bean;
  */
 public class AgentMonitor {
 
-    // agent staffId
     private String staffId;
-    // agent staffName
+
     private String staffName;
-    // VTA busy个数
-    private Integer busyNumber;
-    // VTA ready 个数
-    private Integer readyNumber;
-    // VTA not ready个数
-    private Integer notReadyNumber;
+
+    private String transactionId;
+
+    // Sign on;Sign off
+    //private String signStatus;
+    // Sign on time
+    private Date signOnTime;
+    // Sign off time
+    private Date signOffTime;
+    // SignOffTime - SignOnTime
+    private Long signDuration;
+    // Working
+    // status:Avaliable,notAvaliable(Lunch,Meeting,Traning,Break,Checker,Talking,Case
+    // Follow Up)
+    private String workingStatus;
+    // Working status startTime
+    private Date lastUpdateTime;
+    // EndTime-StartTime
+    private Long workingDuration;
+
+    private Map<String , Integer> statusTimes = new HashMap<String ,Integer>();
+    
+    public Map<String, Integer> getStatusTimes() {
+        return statusTimes;
+    }
+
+    public void setStatusTimes(Map<String, Integer> statusTimes) {
+        this.statusTimes = statusTimes;
+    }
 
     public String getStaffId() {
         return staffId;
@@ -38,28 +64,68 @@ public class AgentMonitor {
         this.staffName = staffName;
     }
 
-    public Integer getBusyNumber() {
-        return busyNumber;
+//    public String getSignStatus() {
+//        return signStatus;
+//    }
+//
+//    public void setSignStatus(String signStatus) {
+//        this.signStatus = signStatus;
+//    }
+
+    public Date getSignOnTime() {
+        return signOnTime;
     }
 
-    public void setBusyNumber(Integer busyNumber) {
-        this.busyNumber = busyNumber;
+    public void setSignOnTime(Date signOnTime) {
+        this.signOnTime = signOnTime;
     }
 
-    public Integer getReadyNumber() {
-        return readyNumber;
+    public Date getSignOffTime() {
+        return signOffTime;
     }
 
-    public void setReadyNumber(Integer readyNumber) {
-        this.readyNumber = readyNumber;
+    public void setSignOffTime(Date signOffTime) {
+        this.signOffTime = signOffTime;
     }
 
-    public Integer getNotReadyNumber() {
-        return notReadyNumber;
+    public Long getSignDuration() {
+        return signDuration;
     }
 
-    public void setNotReadyNumber(Integer notReadyNumber) {
-        this.notReadyNumber = notReadyNumber;
+    public void setSignDuration(Long signDuration) {
+        this.signDuration = signDuration;
+    }
+
+    public String getWorkingStatus() {
+        return workingStatus;
+    }
+
+    public void setWorkingStatus(String workingStatus) {
+        this.workingStatus = workingStatus;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Long getWorkingDuration() {
+        return workingDuration;
+    }
+
+    public void setWorkingDuration(Long workingDuration) {
+        this.workingDuration = workingDuration;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
 }

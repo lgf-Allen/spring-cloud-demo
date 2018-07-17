@@ -11,49 +11,69 @@ import java.util.Date;
  */
 public class ActionEvent {
 
-    private String owner;
+    private Long id;
+    // flag: mvtm or agent
+    //private String owner;
 
+    // Mvtm:branchId; Agent: staffId
     private String ownerId;
 
+    // Mvtm:branchName; Agent:staffName
     private String ownerName;
 
+    // Mvtm Action or agent aciton
     private String action;
 
-    private String callNumber;
-
+    // 当前交易的transactionId
     private String transactionId;
 
-    private Date startTime;
+    // action startTime
+    // private Date startTime;
 
-    private Date endTime;
+    // action endTime
+    // private Date endTime;
 
-    private int callTime;
+    // 拨打次数
+    private int callTimes;
+    
+    // Agent no online ,retryTime =0
+    private int retryTimes;
+    
 
-    private String status;
+    // 预留字段
+    //private String status;
 
     // Sign on;Sign off
-    private String signStatus;
+    //private String signStatus;
     // Sign on time
-    private Date signOnTime;
+    // private Date signOnTime;
     // Sign off time
-    private Date signOffTime;
+    // private Date signOffTime;
     // SignOffTime - SignOnTime
-    private Long signDuration;
+   // private Long signDuration;
     // Working
     // status:Avaliable,notAvaliable(Lunch,Meeting,Traning,Break,Checker,Talking,Case
     // Follow Up)
-    private String workingStatus;
+    //private String workingStatus;
     // Working status startTime
-    private Date lastUpdateTime;
+    // private Date lastUpdateTime;
     // EndTime-StartTime
-    private Long workingDuration;
+   // private Long workingDuration;
 
-    public String getOwner() {
-        return owner;
+//    public String getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(String owner) {
+//        this.owner = owner;
+//    }
+
+    public int getRetryTimes() {
+        return retryTimes;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setRetryTimes(int retryTimes) {
+        this.retryTimes = retryTimes;
     }
 
     public String getOwnerId() {
@@ -80,14 +100,6 @@ public class ActionEvent {
         this.action = action;
     }
 
-    public String getCallNumber() {
-        return callNumber;
-    }
-
-    public void setCallNumber(String callNumber) {
-        this.callNumber = callNumber;
-    }
-
     public String getTransactionId() {
         return transactionId;
     }
@@ -96,92 +108,100 @@ public class ActionEvent {
         this.transactionId = transactionId;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    // public Date getStartTime() {
+    // return startTime;
+    // }
+    //
+    // public void setStartTime(Date startTime) {
+    // this.startTime = startTime;
+    // }
+    //
+    // public Date getEndTime() {
+    // return endTime;
+    // }
+    //
+    // public void setEndTime(Date endTime) {
+    // this.endTime = endTime;
+    // }
+
+    public int getCallTimes() {
+        return callTimes;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setCallTimes(int callTimes) {
+        this.callTimes = callTimes;
     }
 
-    public Date getEndTime() {
-        return endTime;
+//    public String getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(String status) {
+//        this.status = status;
+//    }
+
+//    public String getSignStatus() {
+//        return signStatus;
+//    }
+//
+//    public void setSignStatus(String signStatus) {
+//        this.signStatus = signStatus;
+//    }
+
+    // public Date getSignOnTime() {
+    // return signOnTime;
+    // }
+    //
+    // public void setSignOnTime(Date signOnTime) {
+    // this.signOnTime = signOnTime;
+    // }
+
+    // public Date getSignOffTime() {
+    // return signOffTime;
+    // }
+    //
+    // public void setSignOffTime(Date signOffTime) {
+    // this.signOffTime = signOffTime;
+    // }
+
+//    public Long getSignDuration() {
+//        return signDuration;
+//    }
+//
+//    public void setSignDuration(Long signDuration) {
+//        this.signDuration = signDuration;
+//    }
+
+//    public String getWorkingStatus() {
+//        return workingStatus;
+//    }
+//
+//    public void setWorkingStatus(String workingStatus) {
+//        this.workingStatus = workingStatus;
+//    }
+
+    // public Date getLastUpdateTime() {
+    // return lastUpdateTime;
+    // }
+    //
+    // public void setLastUpdateTime(Date lastUpdateTime) {
+    // this.lastUpdateTime = lastUpdateTime;
+    // }
+
+//    public Long getWorkingDuration() {
+//        return workingDuration;
+//    }
+//
+//    public void setWorkingDuration(Long workingDuration) {
+//        this.workingDuration = workingDuration;
+//    }
+
+    public Long getId() {
+        return id;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public int getCallTime() {
-        return callTime;
-    }
-
-    public void setCallTime(int callTime) {
-        this.callTime = callTime;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSignStatus() {
-        return signStatus;
-    }
-
-    public void setSignStatus(String signStatus) {
-        this.signStatus = signStatus;
-    }
-
-    public Date getSignOnTime() {
-        return signOnTime;
-    }
-
-    public void setSignOnTime(Date signOnTime) {
-        this.signOnTime = signOnTime;
-    }
-
-    public Date getSignOffTime() {
-        return signOffTime;
-    }
-
-    public void setSignOffTime(Date signOffTime) {
-        this.signOffTime = signOffTime;
-    }
-
-    public Long getSignDuration() {
-        return signDuration;
-    }
-
-    public void setSignDuration(Long signDuration) {
-        this.signDuration = signDuration;
-    }
-
-    public String getWorkingStatus() {
-        return workingStatus;
-    }
-
-    public void setWorkingStatus(String workingStatus) {
-        this.workingStatus = workingStatus;
-    }
-
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
-    }
-
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
-    }
-
-    public Long getWorkingDuration() {
-        return workingDuration;
-    }
-
-    public void setWorkingDuration(Long workingDuration) {
-        this.workingDuration = workingDuration;
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
