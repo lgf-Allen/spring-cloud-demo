@@ -19,7 +19,7 @@ public class AgentMonitor {
 
     private String staffName;
 
-    private String transactionId;
+    //private String transactionId;
 
     // Sign on;Sign off
     //private String signStatus;
@@ -120,12 +120,12 @@ public class AgentMonitor {
         this.workingDuration = workingDuration;
     }
 
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
+//    public String getTransactionId() {
+//        return transactionId;
+//    }
+//
+//    public void setTransactionId(String transactionId) {
+//        this.transactionId = transactionId;
+//    }
 
 }

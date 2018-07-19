@@ -21,22 +21,40 @@ public class MvtmMonitor {
 
     private String transactionId;
 
-    // private Date startTime;
+    // 身份证扫描时间
+    private Date scanTime;
 
     private Date lastUpdateTime;
 
-    private Long fillDurationTime;
+    // 填写form表单时间
+    private long fillDurationTime;
 
-    // 预留,本次call接通所需时间
-    private Long waitCallSuccessTime;
+    // 预留,等候接听所需时间
+    private long waitCallTime;
     // 拨打次数
     private int callTimes;
-
+    // 超过30s未接通次数
     private int retryTimes;
     // 标识mvtm状态
     private String status;
+    // 成功开户个数
+    //private int openAccountSuccessTimes;
+    // 在线开户时长:视频接通到挂断
+    private long callDurationTime;
 
-    private int successTime;
+//    // 成功接入次数
+//    private int callSuccessTimes;
+
+    // 等待接通所需时间
+    private long waitCallSuccessTime;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getBranchName() {
         return branchName;
@@ -70,60 +88,28 @@ public class MvtmMonitor {
         this.transactionId = transactionId;
     }
 
-    // public Date getStartTime() {
-    // return startTime;
-    // }
-    //
-    // public void setStartTime(Date startTime) {
-    // this.startTime = startTime;
-    // }
-    //
-    // public Date getEndTime() {
-    // return endTime;
-    // }
-    //
-    // public void setEndTime(Date endTime) {
-    // this.endTime = endTime;
-    // }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getFillDurationTime() {
-        return fillDurationTime;
-    }
-
-    public void setFillDurationTime(Long fillDurationTime) {
-        this.fillDurationTime = fillDurationTime;
-    }
-
-    public int getSuccessTime() {
-        return successTime;
-    }
-
-    public void setSuccessTime(int successTime) {
-        this.successTime = successTime;
-    }
-
     public Date getLastUpdateTime() {
         return lastUpdateTime;
     }
 
     public void setLastUpdateTime(Date lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public long getFillDurationTime() {
+        return fillDurationTime;
+    }
+
+    public void setFillDurationTime(long fillDurationTime) {
+        this.fillDurationTime = fillDurationTime;
+    }
+
+    public long getWaitCallTime() {
+        return waitCallTime;
+    }
+
+    public void setWaitCallTime(long waitCallTime) {
+        this.waitCallTime = waitCallTime;
     }
 
     public int getCallTimes() {
@@ -142,11 +128,51 @@ public class MvtmMonitor {
         this.retryTimes = retryTimes;
     }
 
-    public Long getWaitCallSuccessTime() {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+//    public int getOpenAccountSuccessTimes() {
+//        return openAccountSuccessTimes;
+//    }
+//
+//    public void setOpenAccountSuccessTimes(int openAccountSuccessTimes) {
+//        this.openAccountSuccessTimes = openAccountSuccessTimes;
+//    }
+
+//    public int getCallSuccessTimes() {
+//        return callSuccessTimes;
+//    }
+//
+//    public void setCallSuccessTimes(int callSuccessTimes) {
+//        this.callSuccessTimes = callSuccessTimes;
+//    }
+
+    public long getCallDurationTime() {
+        return callDurationTime;
+    }
+
+    public void setCallDurationTime(long callDurationTime) {
+        this.callDurationTime = callDurationTime;
+    }
+
+    public Date getScanTime() {
+        return scanTime;
+    }
+
+    public void setScanTime(Date scanTime) {
+        this.scanTime = scanTime;
+    }
+
+    public long getWaitCallSuccessTime() {
         return waitCallSuccessTime;
     }
 
-    public void setWaitCallSuccessTime(Long waitCallSuccessTime) {
+    public void setWaitCallSuccessTime(long waitCallSuccessTime) {
         this.waitCallSuccessTime = waitCallSuccessTime;
     }
 

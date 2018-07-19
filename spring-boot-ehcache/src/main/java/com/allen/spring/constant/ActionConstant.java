@@ -30,5 +30,9 @@ public final class ActionConstant {
     public final static String CASEFU = "CASEFU";
     public final static String MISS = "MISS";
     public final static String ENDCALL = "ENDCALL";
+    
+    
+    public final static String CANCEL = "CANCEL";//在未接通电话，弹出retry,点击取消按钮时的触发的动作
+    public final static String EXIT = "EXIT";//MVTM端任意处点击退出按钮
 
 }

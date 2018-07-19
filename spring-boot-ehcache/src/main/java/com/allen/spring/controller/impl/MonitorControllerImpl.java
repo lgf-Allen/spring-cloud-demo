@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.allen.spring.bean.AgentPO;
-import com.allen.spring.service.MvtmMonitorService;
+import com.allen.spring.service.MonitorService;
 
 /**
  * @author first
@@ -21,6 +21,6 @@ import com.allen.spring.service.MvtmMonitorService;
 public class MonitorControllerImpl {
     
     @Autowired
-    private  MvtmMonitorService mvtmMonitorService;
+    private  MonitorService mvtmMonitorService;
     
 }
