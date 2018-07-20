@@ -77,33 +77,6 @@ public class MonitorServiceImpl implements MonitorService {
         case ActionConstant.SIGNOFF:
             instance = signOff(cache, event);
             break;
-//        case ActionConstant.LUNCH:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.MEETING:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.TRAINING:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.BREAK:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.CHECKER:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.CASEFU:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.MISS:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.BUSY:
-//            instance = notReady(cache, event);
-//            break;
-//        case ActionConstant.READY:
-//            instance = notReady(cache, event);
-//            break;
         case ActionConstant.ENDCALL:
             instance = endCall(cache, event);
             break;
