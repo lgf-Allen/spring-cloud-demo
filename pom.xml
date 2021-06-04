@@ -27,7 +27,7 @@
         <hibernate.version>4.2.21.Final</hibernate.version>
         <hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
         <jackson.version>2.9.5</jackson.version>
-        <httpclient.version>4.5.5</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <commons.lang3.version>3.7</commons.lang3.version>
         <commons.beanutils.version>1.9.3</commons.beanutils.version>
         <commons.io.version>2.6</commons.io.version>
