@@ -38,7 +38,7 @@
         <com.sun.mail.version>1.6.0</com.sun.mail.version>
         <dozer.version>5.5.1</dozer.version>
         <ojdbc.version>11.2.0.4</ojdbc.version>
-        <spring.retry.version>1.2.0.RELEASE</spring.retry.version>
+        <spring.retry.version>1.3.1</spring.retry.version>
     </properties>
 
     <build>
