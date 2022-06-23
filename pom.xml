@@ -15,7 +15,7 @@
         <javaee.api.version>7.0</javaee.api.version>
         <javax.servlet.version>4.0.0</javax.servlet.version>
         <commons.version>${project.version}</commons.version>
-        <spring.boot.version>1.5.4.RELEASE</spring.boot.version>
+        <spring.boot.version>2.7.1</spring.boot.version>
         <springframework.version>4.3.8.RELEASE</springframework.version>
         <springframework.integration.version>4.2.5.RELEASE</springframework.integration.version>
         <spring.data.version>1.10.1.RELEASE</spring.data.version>
