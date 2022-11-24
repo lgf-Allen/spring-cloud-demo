@@ -24,7 +24,7 @@
         <spring.restdocs.version>2.0.1.RELEASE</spring.restdocs.version>
         <spring.cloud.version>Dalston.SR3</spring.cloud.version>
         <junit.version>4.12</junit.version>
-        <hibernate.version>4.2.21.Final</hibernate.version>
+        <hibernate.version>5.3.20.Final</hibernate.version>
         <hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
         <jackson.version>2.9.5</jackson.version>
         <httpclient.version>4.5.5</httpclient.version>
